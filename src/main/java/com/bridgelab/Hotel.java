@@ -41,6 +41,5 @@ public class Hotel {
 	public String toString() {
 		return "Hotel{" + "nameOfHotel='" + nameOfHotel + '\'' + ", rate=" + Arrays.toString(rate) + ", rating="
 				+ rating + '}';
-
 	}
 }

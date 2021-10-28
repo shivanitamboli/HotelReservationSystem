@@ -21,27 +21,22 @@ public class HotelReservationSystem {
 		System.out.println("Hotel added successfully..!");
 	}
 
-	public void findCheapestBestRated() {
+	public void findBestRated() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter date range.\nEnter Start Date : ");
 		String startDate = sc.nextLine();
 		System.out.print("Enter End Date : ");
 		String endDate = sc.nextLine();
-		System.out.println("Do you want best rated hotel based on : \n1.Weekday rate\n2.Weekend rate");
-		System.out.println("Enter choice ");
-		int choice;
-		choice = sc.nextInt();
 
-		int min = hotels.get(0).getRate()[choice - 1];
+		int max = hotels.get(0).getRating();
 		int ratingIndex = 0;
 		for (int i = 1; i < hotels.size(); i++) {
-			min = Math.min(min, hotels.get(i).getRate()[choice - 1]);
-			if (hotels.get(i).getRate()[choice - 1] == min)
+			max = Math.max(max, hotels.get(i).getRating());
+			if (hotels.get(i).getRating() == max)
 				ratingIndex = i;
 		}
-		System.out.println("Best Cheapest Rated Hotel : " + hotels.get(ratingIndex).getNameOfHotel());
+		System.out.println("Best Best Rated Hotel : " + hotels.get(ratingIndex).getNameOfHotel());
 		System.out.println("Rating              : " + hotels.get(ratingIndex).getRating());
-		System.out.println("Rate                : " + hotels.get(ratingIndex).getRate()[choice - 1]);
 
 	}
 
@@ -63,7 +58,7 @@ public class HotelReservationSystem {
 		while (true) {
 			System.out.println("1. Add a New Hotel.");
 			System.out.println("2. Show Available Hotels.");
-			System.out.println("3. Find Cheapest Available Hotels.");
+			System.out.println("3. Find Best Rated Hotels.");
 			System.out.println("4. Exit From Hotel Reservation System.");
 			System.out.print("Enter your choice : ");
 			choice = sc.nextInt();
@@ -75,7 +70,7 @@ public class HotelReservationSystem {
 				h.showHotels();
 				break;
 			case 3:
-				h.findCheapestBestRated();
+				h.findBestRated();
 				break;
 			case 4:
 				return;
