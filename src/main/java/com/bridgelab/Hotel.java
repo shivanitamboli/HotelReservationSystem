@@ -5,19 +5,19 @@ import java.util.Arrays;
 public class Hotel {
 	private String nameOfHotel;
 	private Integer[] rate;
-	private int rating;
+	private Integer rating;
 
-	public Hotel(String nameOfHotel, Integer[] rate, int rating) {
+	public Hotel(String nameOfHotel, Integer[] rate, Integer rating) {
 		this.nameOfHotel = nameOfHotel;
 		this.rate = rate;
 		this.rating = rating;
 	}
 
-	public int getRating() {
+	public Integer getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
 
