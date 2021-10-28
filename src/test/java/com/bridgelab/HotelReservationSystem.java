@@ -21,13 +21,13 @@ public class HotelReservationSystem {
 		System.out.println("Hotel added successfully..!");
 	}
 
-	public void findCheapest() {
+	public void findCheapestBestRated() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter date range.\nEnter Start Date : ");
 		String startDate = sc.nextLine();
 		System.out.print("Enter End Date : ");
 		String endDate = sc.nextLine();
-		System.out.println("Do you want cheapest hotel based on : \n1.Weekday rate\n2.Weekend rate");
+		System.out.println("Do you want best rated hotel based on : \n1.Weekday rate\n2.Weekend rate");
 		System.out.println("Enter choice ");
 		int choice;
 		choice = sc.nextInt();
@@ -39,8 +39,10 @@ public class HotelReservationSystem {
 			if (hotels.get(i).getRate()[choice - 1] == min)
 				ratingIndex = i;
 		}
-		System.out.println("Best Cheapest Hotel : " + hotels.get(ratingIndex).getNameOfHotel());
+		System.out.println("Best Cheapest Rated Hotel : " + hotels.get(ratingIndex).getNameOfHotel());
+		System.out.println("Rating              : " + hotels.get(ratingIndex).getRating());
 		System.out.println("Rate                : " + hotels.get(ratingIndex).getRate()[choice - 1]);
+
 	}
 
 	public void showHotels() {
@@ -73,7 +75,7 @@ public class HotelReservationSystem {
 				h.showHotels();
 				break;
 			case 3:
-				h.findCheapest();
+				h.findCheapestBestRated();
 				break;
 			case 4:
 				return;
