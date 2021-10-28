@@ -1,10 +1,12 @@
 package com.bridgelab;
 
+import java.util.Arrays;
+
 public class Hotel {
 	private String nameOfHotel;
-	private int rate;
+	private Integer[] rate;
 
-	public Hotel(String nameOfHotel, int rate) {
+	public Hotel(String nameOfHotel, Integer[] rate) {
 		this.nameOfHotel = nameOfHotel;
 		this.rate = rate;
 	}
@@ -17,16 +19,16 @@ public class Hotel {
 		this.nameOfHotel = nameOfHotel;
 	}
 
-	public int getRate() {
+	public Integer[] getRate() {
 		return rate;
 	}
 
-	public void setRate(int rate) {
+	public void setRate(Integer[] rate) {
 		this.rate = rate;
 	}
 
 	@Override
 	public String toString() {
-		return "Hotel{" + "nameOfHotel='" + nameOfHotel + '\'' + ", rate=" + rate + '}';
+		return "Hotel{" + "nameOfHotel='" + nameOfHotel + '\'' + ", rate=" + Arrays.toString(rate) + '}';
 	}
 }
