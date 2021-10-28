@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class HotelReservationSystem {
 	ArrayList<Hotel> hotels = new ArrayList<Hotel>();
+	String[] specialCustomer = { "pushpak", "pranav", "ganesh" };
 
 	public void addHotel() {
 		Scanner sc = new Scanner(System.in);
@@ -43,7 +44,15 @@ public class HotelReservationSystem {
 		String endDate = sc.nextLine();
 		System.out.print("Enter Special customer name : ");
 		int choice;
-		choice = sc.nextInt();
+		if (isSpecial(sc.next())) {
+			choice = 3;
+			System.out.println("Yes,you are special customer..!");
+		} else {
+			System.out.println("Sorry,you are not special customer.");
+			System.out.println("Do you want cheapest hotel based on : \n1.Weekday\n2.Weekend");
+			System.out.println("Enter choice ");
+			choice = sc.nextInt();
+		}
 
 		int minIndex = 0;
 		try {
@@ -55,10 +64,20 @@ public class HotelReservationSystem {
 			}
 			System.out.println("Cheapest Hotel name : " + hotels.get(minIndex).getNameOfHotel());
 			System.out.println("Rating              : " + hotels.get(minIndex).getRating());
-			System.out.println("Cheapest Rate       : " + min);
+			System.out.println("Special rate        : " + hotels.get(minIndex).getRate()[minIndex]);
+
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("Invalid choice");
 		}
+	}
+
+	private boolean isSpecial(String name) {
+		for (String iName : specialCustomer) {
+			if (iName.equals(name)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public void findBestRatedHotel() {
