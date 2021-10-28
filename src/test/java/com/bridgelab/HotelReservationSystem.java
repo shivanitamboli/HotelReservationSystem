@@ -8,14 +8,16 @@ public class HotelReservationSystem {
 
 	public void addHotel() {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter Hotel Name :\t ");
+		System.out.print("Enter Hotel Name \t: ");
 		String hotelName = sc.nextLine();
+		System.out.print("Enter Rating : \t");
+		int hotelRating = sc.nextInt();
 		System.out.print("Weekday Rate : \t");
 		int weekdayRate = sc.nextInt();
 		System.out.print("Weekend Rate : \t");
 		int weekendRate = sc.nextInt();
 
-		hotels.add(new Hotel(hotelName, new Integer[] { weekdayRate, weekendRate }));
+		hotels.add(new Hotel(hotelName, new Integer[] { weekdayRate, weekendRate }, hotelRating));
 		System.out.println("Hotel added successfully..!");
 	}
 
@@ -43,10 +45,10 @@ public class HotelReservationSystem {
 
 	public void showHotels() {
 		System.out.println("Hotels ->");
-		System.out.printf("%-20s%-20s%-20s\n", "Name of hotel", "WeekdayRate", "WeekendRate");
+		System.out.printf("%-20s%-20s%-20s%-20s\n", "Name of hotel", "Rating", "WeekdayRate", "WeekendRate");
 		for (int i = 0; i < hotels.size(); i++) {
-			System.out.printf("%-20s%-20d%-20d\n", hotels.get(i).getNameOfHotel(), hotels.get(i).getRate()[0],
-					hotels.get(i).getRate()[1]);
+			System.out.printf("%-20s%-20d%-20d%-20d\n", hotels.get(i).getNameOfHotel(), hotels.get(i).getRating(),
+					hotels.get(i).getRate()[0], hotels.get(i).getRate()[1]);
 		}
 	}
 
